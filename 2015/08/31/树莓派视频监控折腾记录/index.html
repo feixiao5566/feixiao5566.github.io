@@ -1,0 +1,700 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="生命不休，装逼不止。" />
+
+
+
+  <meta name="keywords" content="RaspBerry," />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hello World" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="检查更新12sudo apt-get install rpi-updatesudo rpi-update
+默认的源在国外, 下载速度太慢, 所以需要修改默认源到国内, 试了好几个, 发现公司的网络访问阿里云的源速度不错123sudo vi /etc/apt/sources.listdeb http://mirrors.aliyun.com/raspbian/raspbian/ wheezy mai">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派视频监控折腾记录">
+<meta property="og:url" content="http://ferstar.github.io/2015/08/31/树莓派视频监控折腾记录/index.html">
+<meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="检查更新12sudo apt-get install rpi-updatesudo rpi-update
+默认的源在国外, 下载速度太慢, 所以需要修改默认源到国内, 试了好几个, 发现公司的网络访问阿里云的源速度不错123sudo vi /etc/apt/sources.listdeb http://mirrors.aliyun.com/raspbian/raspbian/ wheezy mai">
+<meta property="og:updated_time" content="2015-08-31T15:18:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树莓派视频监控折腾记录">
+<meta name="twitter:description" content="检查更新12sudo apt-get install rpi-updatesudo rpi-update
+默认的源在国外, 下载速度太慢, 所以需要修改默认源到国内, 试了好几个, 发现公司的网络访问阿里云的源速度不错123sudo vi /etc/apt/sources.listdeb http://mirrors.aliyun.com/raspbian/raspbian/ wheezy mai">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 树莓派视频监控折腾记录 | Hello World </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Hello World</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 's5cxa5cUbvvLhFyhd76x','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              树莓派视频监控折腾记录
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-08-31T23:16:05+08:00" content="2015-08-31">
+            2015-08-31
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/08/31/树莓派视频监控折腾记录/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/31/树莓派视频监控折腾记录/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>检查更新<br><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> install rpi-<span class="keyword">update</span></span><br><span class="line">sudo rpi-<span class="keyword">update</span></span><br></pre></td></tr></table></figure></p>
+<p>默认的源在国外, 下载速度太慢, 所以需要修改默认源到国内, 试了好几个, 发现公司的网络访问阿里云的源速度不错<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vi <span class="regexp">/etc/</span>apt/sources.list</span><br><span class="line">deb <span class="string">http:</span><span class="comment">//mirrors.aliyun.com/raspbian/raspbian/ wheezy main non-free contrib</span></span><br><span class="line">deb-src <span class="string">http:</span><span class="comment">//mirrors.aliyun.com/raspbian/raspbian/ wheezy main non-free contrib</span></span><br></pre></td></tr></table></figure></p>
+<p>进行更新<br><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br><span class="line">sudo apt-<span class="built_in">get</span> upgrade</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p><code>注: tf卡居然是4G的, 容量不太够, 需要弄个大点的, 暂时就这样省着点花, 先瘦瘦身
+后来发现其实卡是16G的, 只是原版系统是直接写入的镜像, 有大片的空间没用到, 很浪费有没有, 赶紧用gparted把未使用空间划给/rootfs, 瞬间清净, 想咋整就咋整.</code><br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> autoremove    <span class="comment">#删除不需要的孤立包</span></span><br><span class="line">sudo apt-<span class="keyword">get</span> clean    <span class="comment"># 删除deb包</span></span><br></pre></td></tr></table></figure></p>
+<p>更新操作完毕, 再次查看下更新有无问题<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install -f    <span class="comment"># 如果有安装错误, 修复之</span></span><br></pre></td></tr></table></figure></p>
+<p>重启<br><code>sudo reboot</code><br>使用摄像头uv4l原生驱动(系统自带驱动不太给力)<br><a href="http://www.ics.com/blog/raspberry-pi-camera-module" target="_blank" rel="external">http://www.ics.com/blog/raspberry-pi-camera-module</a><br><a href="http://www.linux-projects.org/modules/sections/index.php?op=viewarticle&amp;artid=14" target="_blank" rel="external">http://www.linux-projects.org/modules/sections/index.php?op=viewarticle&amp;artid=14</a><br><code>$ curl http://www.linux-projects.org/listing/uv4l_repo/lrkey.asc | sudo apt-key add -</code><br>在/etc/apt/sources.list添加<br><code>deb http://www.linux-projects.org/listing/uv4l_repo/raspbian/ wheezy main</code><br>更新软件列表&amp;安装摄像头驱动包<br><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br><span class="line">sudo apt-<span class="built_in">get</span> install uv4l uv4l-raspicam uv4l-raspicam-extras</span><br></pre></td></tr></table></figure></p>
+<p>着手编译mjpg-streamer<br><code>CFLAGS+=&quot;-O2 -march=armv6 -mfpu=vfp -mfloat-abi=hard&quot; make USE_LIBV4L2=true clean all</code><br>from: <a href="https://github.com/ferstar/rpi-mjpg-streamer" target="_blank" rel="external">https://github.com/ferstar/rpi-mjpg-streamer</a> 当然是fork别人的了<br>mjpg-streamer编译后自带的sample页面比较挫, 把www里的内容换成rpi-mjpg-streamer/www里的<br>现在轮到测试了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">./mjpg_streamer -i <span class="string">'./input_uvc.so -d /dev/video0 -y -n -r 320x240 -f 24'</span> -o <span class="string">'./output_http.so -w ./www -p 8080'</span></span><br><span class="line">    <span class="comment"># -n 的作用仅仅是屏蔽掉一些乱七八糟的warning提示而已</span></span><br><span class="line">    <span class="comment"># -d /dev/video0 这里指定的是我们摄像头的挂载位置</span></span><br><span class="line">    <span class="comment"># -r 分辨率, 越低实时性越好, 但画质越渣</span></span><br><span class="line">    <span class="comment"># -f 帧率, 貌似最高支持到30</span></span><br><span class="line">    <span class="comment"># -w /www web根目录</span></span><br><span class="line">    <span class="comment"># -p 端口</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment"># -y 指定视频采集格式为YUYV, 摄像头不支持mpeg格式</span></span><br><span class="line">    <span class="comment"># from http://stackoverflow.com/questions/13437244/mjpg-streaming-with-a-raspberry-pi-and-a-webcam</span></span><br><span class="line">    <span class="comment">#</span></span><br></pre></td></tr></table></figure></p>
+<p>正常终端显示如下:<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MJPG Streamer Version: svn rev: <span class="number">3</span>:<span class="number">172</span>M</span><br><span class="line"> i: Using V4L2 device<span class="built_in">.</span>: /dev/video0</span><br><span class="line"> i: Desired Resolution: <span class="number">320</span> x <span class="number">240</span></span><br><span class="line"> i: Frames Per Second<span class="built_in">.</span>: <span class="number">24</span></span><br><span class="line"> i: Format<span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span>: YUV</span><br><span class="line"> i: JPEG Quality<span class="attribute">...</span><span class="attribute">...</span>: <span class="number">80</span></span><br><span class="line"> o: www<span class="attribute">-folder</span><span class="attribute">-path</span><span class="attribute">...</span>: <span class="built_in">.</span>/www/</span><br><span class="line"> o: HTTP TCP port<span class="attribute">...</span><span class="built_in">..</span>: <span class="number">8080</span></span><br><span class="line"> o: username:password<span class="built_in">.</span>: disabled</span><br><span class="line"> o: commands<span class="attribute">...</span><span class="attribute">...</span><span class="attribute">...</span><span class="built_in">.</span>: enabled</span><br></pre></td></tr></table></figure></p>
+<p>浏览器访问: <a href="http://your.pi&#39;s.ip:8080" target="_blank" rel="external">http://your.pi&#39;s.ip:8080</a> 即可看到监控视频流<br>当然也可以使用VLC播放器播放 <a href="http://your.pi&#39;s.ip:8080/?action=stream" target="_blank" rel="external">http://your.pi&#39;s.ip:8080/?action=stream</a></p>
+<p>接下来应该是折腾无线接入了<br>lsusb信息:<br><code>Bus 001 Device 005: ID 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS 802.11n WLAN Adapter</code><br>默认8192cu驱动会有电源管理自动休眠掉线问题, 需要关掉这个功能<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vi</span> /etc/modprobe.<span class="keyword">d</span>/<span class="number">8192</span><span class="keyword">cu</span>.<span class="keyword">conf</span></span><br><span class="line"><span class="keyword">options</span> <span class="number">8192</span><span class="keyword">cu</span> rtw_power_mgnt=<span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p>检查下生效没有:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo rmmod <span class="number">8192</span>cu    <span class="preprocessor"># 卸载wifi驱动模块</span></span><br><span class="line">sudo modprobe <span class="number">8192</span>cu    <span class="preprocessor"># 重新挂载</span></span><br><span class="line">cat /sys/module/<span class="number">8192</span>cu/parameters/rtw_power_mgnt    <span class="preprocessor"># 显示为<span class="number">0</span>即表示关闭自动休眠(默认为<span class="number">1</span>开启)</span></span><br></pre></td></tr></table></figure></p>
+<p>配置网络连接:<br><code>sudo vi /etc/network/interfaces</code><br>内容如下:<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">auto lo</span><br><span class="line">iface lo <span class="keyword">inet</span> loopback</span><br><span class="line">iface eth0 <span class="keyword">inet</span> dhcp</span><br><span class="line">allow-hotplug wlan0</span><br><span class="line">iface wlan0 <span class="keyword">inet</span> manual</span><br><span class="line">wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf</span><br><span class="line">iface <span class="keyword">default</span> <span class="keyword">inet</span> dhcp</span><br><span class="line">iface wlan0 <span class="keyword">inet</span> dhcp</span><br><span class="line">wpa-ssid <span class="string">"xxx"</span>    <span class="comment">#ssid</span></span><br><span class="line">wpa-psk <span class="string">"xxx"</span>    <span class="comment">#passwd</span></span><br></pre></td></tr></table></figure></p>
+<p>添加无线信息:<br><code>sudo vi /etc/wpa_supplicant/wpa_supplicant.conf</code><br>内容如下<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ctrl_interface=<span class="keyword">DIR</span>=/<span class="keyword">var</span>/<span class="keyword">run</span>/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=1</span><br><span class="line">network=&#123;</span><br><span class="line">        ssid=<span class="string">"xxx"</span></span><br><span class="line">        psk=<span class="string">"xxx"</span></span><br><span class="line">        proto=RSN</span><br><span class="line">        key_mgmt=WPA-PSK</span><br><span class="line">        pairwise=CCMP</span><br><span class="line">        auth_alg=<span class="keyword">OPEN</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后启动wifi:<br><code>sudo ifup wlan0</code><br>查看wifi连接信息:<br><code>ifconfig wlan0</code><br>内容如下:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wlan0     Link encap:Ethernet  HWaddr e8:<span class="number">4</span>e:<span class="number">06</span>:<span class="number">29</span>:<span class="number">0f</span>:<span class="number">3</span>b  </span><br><span class="line">          inet addr:<span class="number">192.168</span><span class="number">.1</span><span class="number">.199</span>  Bcast:<span class="number">192.168</span><span class="number">.1</span><span class="number">.255</span>  Mask:<span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span></span><br><span class="line">          UP BROADCAST RUNNING MULTICAST  MTU:<span class="number">1500</span>  Metric:<span class="number">1</span></span><br><span class="line">          RX packets:<span class="number">2662</span> errors:<span class="number">0</span> dropped:<span class="number">1</span> overruns:<span class="number">0</span> frame:<span class="number">0</span></span><br><span class="line">          TX packets:<span class="number">30</span> errors:<span class="number">0</span> dropped:<span class="number">0</span> overruns:<span class="number">0</span> carrier:<span class="number">0</span></span><br><span class="line">          collisions:<span class="number">0</span> txqueuelen:<span class="number">1000</span></span><br><span class="line">          RX bytes:<span class="number">263097</span> (<span class="number">256.9</span> KiB)  TX bytes:<span class="number">3227</span> (<span class="number">3.1</span> KiB)</span><br></pre></td></tr></table></figure></p>
+<p>至此网络部分正常.</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/RaspBerry/" rel="tag">#RaspBerry</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/31/How-to-get-the-process-ID-to-kill-a-nohup-process/" rel="prev">How to get the process ID to kill a nohup process?</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/31/实用shell脚本整理（不定期更新）/" rel="next">实用shell脚本整理（不定期更新）</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+            <!-- 多说热评文章-->
+            <p>热评文章</p>
+            <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/08/31/树莓派视频监控折腾记录/"
+                   data-title="树莓派视频监控折腾记录" data-url="http://ferstar.github.io/2015/08/31/树莓派视频监控折腾记录/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/uploads/avatar.jpg" alt="ferstar" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">ferstar</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">生命不休，装逼不止。</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ferstar" target="_blank">GitHub</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp;  2013 - 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ferstar</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"octopress"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+  	<script src="/js/ua-parser.min.js"></script>
+  	<script src="/js/hook-duoshuo.js"></script>
+  
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

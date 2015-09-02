@@ -1,0 +1,854 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="生命不休，装逼不止。" />
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hello World" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="硬件
+raspberry pi2B+8G tf卡，系统lubuntu14.04.3
+某宝7寸800x480电容式触摸屏，厂商信息如下：
+0eef:0005 D-WAV Scientific Co., Ltd
+
+
+过程1. 触屏驱动+显示分辨率适配">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派2B+7寸触摸屏折腾记录">
+<meta property="og:url" content="http://ferstar.github.io/2015/08/15/树莓派2B-7寸触摸屏折腾记录/index.html">
+<meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="硬件
+raspberry pi2B+8G tf卡，系统lubuntu14.04.3
+某宝7寸800x480电容式触摸屏，厂商信息如下：
+0eef:0005 D-WAV Scientific Co., Ltd
+
+
+过程1. 触屏驱动+显示分辨率适配">
+<meta property="og:updated_time" content="2015-08-31T14:44:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树莓派2B+7寸触摸屏折腾记录">
+<meta name="twitter:description" content="硬件
+raspberry pi2B+8G tf卡，系统lubuntu14.04.3
+某宝7寸800x480电容式触摸屏，厂商信息如下：
+0eef:0005 D-WAV Scientific Co., Ltd
+
+
+过程1. 触屏驱动+显示分辨率适配">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 树莓派2B+7寸触摸屏折腾记录 | Hello World </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Hello World</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 's5cxa5cUbvvLhFyhd76x','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              树莓派2B+7寸触摸屏折腾记录
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-08-15T22:45:00+08:00" content="2015-08-15">
+            2015-08-15
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/08/15/树莓派2B-7寸触摸屏折腾记录/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/15/树莓派2B-7寸触摸屏折腾记录/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="硬件">硬件</h1><ol>
+<li>raspberry pi2B+8G tf卡，系统lubuntu14.04.3</li>
+<li><p>某宝7寸800x480电容式触摸屏，厂商信息如下：</p>
+<p><code>0eef:0005 D-WAV Scientific Co., Ltd</code></p>
+</li>
+</ol>
+<h1 id="过程">过程</h1><h2 id="1-_触屏驱动+显示分辨率适配">1. 触屏驱动+显示分辨率适配</h2><a id="more"></a>
+<p>商家提供了预编译的内核，内容如下：</p>
+<pre><code>├── config.txt
+├── kernel7.img
+├── kernel.img
+├── modules
+│   └── <span class="number">3.18</span><span class="number">.6</span>-v7+
+├── USB_TOUCH_CAP_7<span class="number">.0</span>_RASPBIAN
+└── xinput-calibrator_0<span class="number">.7</span><span class="number">.5</span>-<span class="number">1</span>_armhf.deb
+`<span class="javascript">&lt;<span class="regexp">/pre&gt;
+
+其中</span></span>`USB_TOUCH_CAP_7<span class="number">.0</span>_RASPBIAN`<span class="javascript"><span class="regexp">是自动安装脚本，但其实路径指定完全是错的，我修改如下：
+
+&lt;pre&gt;</span></span>`<span class="comment">#!/bin/sh -e</span>
+<span class="comment">#</span>
+<span class="comment"># modified by ferstar</span>
+<span class="comment">#</span>
+<span class="comment"># This script is executed at the end of each multiuser runlevel.</span>
+<span class="comment"># Make sure that the script will &amp;quot;exit 0&amp;quot; on success or any other</span>
+<span class="comment"># value on error.</span>
+<span class="comment">#</span>
+sudo mv /boot/firmware/kernel7.img /boot/firmware/kernel7.img.`<span class="javascript"><span class="regexp">uname -r</span></span>`
+sudo cp kernel7.img /boot/firmware/kernel7.img
+
+sudo mv /boot/firmware/initrd7.img /boot/firmware/initrd7.img.`<span class="javascript"><span class="regexp">uname -r</span></span>`
+sudo cp kernel.img /boot/firmware/initrd7.img
+
+sudo cp /boot/firmware/config.txt /boot/firmware/config.txt.`<span class="javascript"><span class="regexp">uname -r</span></span>`
+<span class="comment"># 这个是树莓派启动配置文件，里面一个参数比较重要max_usb_current=1，解除USB最大供电电流限制</span>
+sudo cp config.txt /boot/firmware/config.txt
+
+sudo mv <span class="regexp">/lib/modules/</span>`<span class="javascript"><span class="regexp">uname -r</span></span>` <span class="regexp">/lib/modules/</span>`<span class="javascript"><span class="regexp">uname -r</span></span>`.bak
+sudo cp -r  .<span class="regexp">/modules /lib/</span>
+<span class="comment"># 下面的这一步其实没必要，触屏校准xinput-calibrator软件在软件源里有提供，貌似还比这个版本新，不过用法都是一样的</span>
+sudo dpkg -i xinput-calibrator_0<span class="number">.7</span><span class="number">.5</span>-<span class="number">1</span>_armhf.deb
+reboot
+`<span class="javascript"><span class="regexp">&lt;/</span>pre&gt;
+
+重启后内核版本为</span>`<span class="number">3.18</span><span class="number">.6</span>-v7+`<span class="javascript">，以后不能从源里更新官方内核，会花屏，商家并没有提供触屏驱动源码
+
+## <span class="number">2</span>\. 触屏校准
+
+在设备开终端，运行</span>`xinput-calibrator`<span class="javascript">，按提示戳四下，然后把类似如下输出字段
+
+&lt;pre&gt;</span>`Section &amp;quot;InputClass&amp;quot;
+        Identifier      &amp;quot;calibration&amp;quot;
+        MatchProduct    &amp;quot;RPI_TOUCH By ZH851&amp;quot;
+        Option  &amp;quot;Calibration&amp;quot;   &amp;quot;<span class="number">3</span> <span class="number">790</span> <span class="number">9</span> <span class="number">490</span>&amp;quot;
+        Option  &amp;quot;SwapAxes&amp;quot;      &amp;quot;<span class="number">0</span>&amp;quot;
+EndSection
+`<span class="javascript">&lt;<span class="regexp">/pre&gt;
+
+写入到</span></span>`/usr/share/X11/xorg.conf.d/<span class="number">99</span>-calibration.conf`<span class="javascript"><span class="regexp">中，没有就新建之
+
+## 3\. 触屏模拟右键
+
+编辑</span></span>`/usr/share/X11/xorg.conf.d/<span class="number">99</span>-calibration.conf`<span class="javascript"><span class="regexp">，加入三行：
+
+&lt;pre&gt;</span></span>`Option &amp;quot;EmulateThirdButton&amp;quot; &amp;quot;<span class="number">1</span>&amp;quot;
+Option &amp;quot;EmulateThirdButtonTimeout&amp;quot; &amp;quot;<span class="number">750</span>&amp;quot;
+Option &amp;quot;EmulateThirdButtonThreshold&amp;quot; &amp;quot;<span class="number">30</span>&amp;quot;
+`<span class="javascript"><span class="regexp">&lt;/</span>pre&gt;
+
+最终结果像这样：
+
+&lt;pre&gt;</span>`Section &amp;quot;InputClass&amp;quot;
+        Identifier      &amp;quot;calibration&amp;quot;
+        MatchProduct    &amp;quot;RPI_TOUCH By ZH851&amp;quot;
+        Option  &amp;quot;Calibration&amp;quot;   &amp;quot;<span class="number">3</span> <span class="number">790</span> <span class="number">9</span> <span class="number">490</span>&amp;quot;
+        Option  &amp;quot;SwapAxes&amp;quot;      &amp;quot;<span class="number">0</span>&amp;quot;
+        Option &amp;quot;EmulateThirdButton&amp;quot; &amp;quot;<span class="number">1</span>&amp;quot;
+        Option &amp;quot;EmulateThirdButtonTimeout&amp;quot; &amp;quot;<span class="number">750</span>&amp;quot;
+        Option &amp;quot;EmulateThirdButtonThreshold&amp;quot; &amp;quot;<span class="number">30</span>&amp;quot;
+EndSection
+`<span class="javascript">&lt;<span class="regexp">/pre&gt;
+
+保存重启后，长按屏幕==鼠标右键效果，模拟右键完成
+
+## 4\. 禁用系统bug报告弹窗
+
+bug报告本来是好事，但无奈弹的太多了些，多数情况除了影响心情外，并没有什么卵用，所以需要禁用之：
+
+</span></span>`sudo vi /etc/default/apport`<span class="javascript"><span class="regexp">
+
+&lt;pre&gt;</span></span>`<span class="comment"># set this to 0 to disable apport, or to 1 to enable it</span>
+<span class="comment"># you can temporarily override this with</span>
+<span class="comment"># sudo service apport start force_start=1</span>
+enabled=<span class="number">0</span>
+`<span class="javascript"><span class="regexp">&lt;/</span>pre&gt;
+
+## <span class="number">5</span>\. 虚拟键盘</span>`matchbox-keyboard`<span class="javascript">
+
+起先照这里的说明[http:<span class="comment">//ozzmaker.com/2014/06/30/virtual-keyboard-for-the-raspberry-pi/](http://ozzmaker.com/2014/06/30/virtual-keyboard-for-the-raspberry-pi/)编译了下，发现键盘布局蛮丑的，后来手欠apt-get，发现原来有编译好的=。=，而且还长的略好看。</span>
+
+虚拟键盘装上后需要考虑按需弹出的问题，作者帖子里写的适用于自行编译的版本，deb包安装的不适用，需要略做修改：
+
+</span>`sudo vi /usr/bin/toggle-matchbox-keyboard.sh`<span class="javascript">
+
+&lt;pre&gt;</span>`<span class="comment">#!/bin/bash</span>
+<span class="comment">#This script toggle the virtual keyboard</span>
+
+PID=`<span class="javascript">pidof matchbox-keyboard</span>`
+<span class="keyword">if</span> [ ! -e $PID ]; <span class="keyword">then</span>
+  killall matchbox-keyboard
+<span class="keyword">else</span>
+ matchbox-keyboard extended &amp;amp;
+fi
+`<span class="javascript">&lt;<span class="regexp">/pre&gt;
+
+</span></span>`sudo chmod +x /usr/bin/toggle-matchbox-keyboard.sh`<span class="javascript"><span class="regexp">
+
+</span></span>`sudo vi /usr/share/applications/inputmethods/matchbox-keyboard.desktop`<span class="javascript"><span class="regexp">
+
+&lt;pre&gt;</span></span>`[Desktop Entry]
+Name=Keyboard
+Comment=Virtual Keyboard
+<span class="comment"># Exec=matchbox-keyboard 原本是这行，需要指向我们自己的脚本</span>
+Exec=toggle-matchbox-keyboard.sh
+Type=Application
+Icon=matchbox-keyboard.png
+Categories=Panel;Utility;MB
+X-MB-INPUT-MECHANSIM=True
+`<span class="javascript"><span class="regexp">&lt;/</span>pre&gt;
+
+</span>`vi .config/lxpanel/Lubuntu/panels/panel`<span class="javascript">这个路径也跟作者说的不太一致
+
+&lt;pre&gt;</span>`Plugin {
+    type = launchbar
+    Config {
+        Button {
+            id=/usr/share/applications/inputmethods/matchbox-keyboard.desktop
+        }
+    }
+}
+
+Plugin {
+    type = volumealsa
+}
+<span class="comment"># 我把键盘按钮放在音量键前，并把右下角的logout键去掉了，因为不小心触到会弹出很长的一个对话框，屏幕略小，显示不全</span>
+`<span class="javascript">&lt;<span class="regexp">/pre&gt;
+
+这样，注销后重登陆就会看到右下角键盘图标了，按下弹出，再按关闭，很方便～
+
+## 6\. 配置自动登陆
+
+默认每次登陆都是要输入密码，但又没法弹出虚拟键盘，所以自动登陆很需要
+
+</span></span>`sudo vi /etc/lightdm/lightdm.conf`<span class="javascript"><span class="regexp">没有就新建，内容
+
+&lt;pre&gt;</span></span>`[SeatDefaults]
+<span class="comment"># 这里填写用于自动登录的用户名</span>
+autologin-user=ubuntu
+autologin-user-timeout=<span class="number">0</span>
+<span class="comment"># Check https://bugs.launchpad.net/lightdm/+bug/854261 before setting a timeout</span>
+user-session=Lubuntu
+greeter-session=lightdm-gtk-greeter
+</code></pre></span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/19/查询局域网在线ip及对应mac地址的方法/" rel="prev">查询局域网在线ip及对应mac地址的方法</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/15/搭载罗技C270，树莓派变身IP摄像头-mjpg-streamer/" rel="next">搭载罗技C270，树莓派变身IP摄像头(mjpg-streamer)</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+            <!-- 多说热评文章-->
+            <p>热评文章</p>
+            <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/08/15/树莓派2B-7寸触摸屏折腾记录/"
+                   data-title="树莓派2B+7寸触摸屏折腾记录" data-url="http://ferstar.github.io/2015/08/15/树莓派2B-7寸触摸屏折腾记录/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/uploads/avatar.jpg" alt="ferstar" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">ferstar</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">生命不休，装逼不止。</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ferstar" target="_blank">GitHub</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#硬件"><span class="nav-number">1.</span> <span class="nav-text">硬件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#过程"><span class="nav-number">2.</span> <span class="nav-text">过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_触屏驱动+显示分辨率适配"><span class="nav-number">2.1.</span> <span class="nav-text">1. 触屏驱动+显示分辨率适配</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp;  2013 - 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ferstar</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"octopress"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+  	<script src="/js/ua-parser.min.js"></script>
+  	<script src="/js/hook-duoshuo.js"></script>
+  
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
