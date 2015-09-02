@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ferstar.github.io/2015/08/12/E-Package-ros-indigo-gazebo-ros-has-no-installation-candidate/</loc>
+    <lastmod>2015-09-02T03:17:13.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://ferstar.github.io/2013/11/06/toolsm4compile-error-2-solved/</loc>
     <lastmod>2015-09-02T01:35:27.000Z</lastmod>
   </url>
@@ -222,32 +227,12 @@
   </url>
   
   <url>
-    <loc>http://ferstar.github.io/2015/08/20/Static-IP-Setup-On-Arch-Linux-ARM/</loc>
-    <lastmod>2015-08-31T14:44:46.000Z</lastmod>
-  </url>
-  
-  <url>
     <loc>http://ferstar.github.io/2015/08/12/SOLVED-g-internal-compiler-error-Killed-program-cc1plus/</loc>
     <lastmod>2015-08-31T14:44:46.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://ferstar.github.io/2015/08/19/%E6%9F%A5%E8%AF%A2%E5%B1%80%E5%9F%9F%E7%BD%91%E5%9C%A8%E7%BA%BFip%E5%8F%8A%E5%AF%B9%E5%BA%94mac%E5%9C%B0%E5%9D%80%E7%9A%84%E6%96%B9%E6%B3%95/</loc>
-    <lastmod>2015-08-31T14:44:46.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ferstar.github.io/2015/08/12/SOLVED-CMAKE-ERROR-YOUR-CXX-COMPILER-%E2%80%9CCMAKE-CXX-COMPILER-NOTFOUND%E2%80%9D-WAS-NOT-FOUND-PLEASE-SET-CMAKE-CXX-COMPILER-TO-A-VALID-COMPILER-PATH-OR-NAME-SOLVED-CMAKE-ERROR-YOUR-CXX-COMPILER-%E2%80%9CCMAKE-CXX/</loc>
-    <lastmod>2015-08-31T14:44:46.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ferstar.github.io/2015/08/15/%E6%A0%91%E8%8E%93%E6%B4%BE2B-7%E5%AF%B8%E8%A7%A6%E6%91%B8%E5%B1%8F%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2015-08-31T14:44:46.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://ferstar.github.io/2015/08/12/E-Package-ros-indigo-gazebo-ros-has-no-installation-candidate/</loc>
+    <loc>http://ferstar.github.io/2015/08/12/SOLVED-Could-not-find-a-package-configuration-file-provided-by-quot-quot-with-any-of-the-following-names/</loc>
     <lastmod>2015-08-31T14:44:46.000Z</lastmod>
   </url>
   
@@ -257,7 +242,7 @@
   </url>
   
   <url>
-    <loc>http://ferstar.github.io/2015/08/12/8192cu%E7%BD%91%E5%8D%A1%E9%87%8D%E7%BC%96%E8%AF%91/</loc>
+    <loc>http://ferstar.github.io/2015/08/19/%E6%9F%A5%E8%AF%A2%E5%B1%80%E5%9F%9F%E7%BD%91%E5%9C%A8%E7%BA%BFip%E5%8F%8A%E5%AF%B9%E5%BA%94mac%E5%9C%B0%E5%9D%80%E7%9A%84%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2015-08-31T14:44:46.000Z</lastmod>
   </url>
   
@@ -267,7 +252,22 @@
   </url>
   
   <url>
-    <loc>http://ferstar.github.io/2015/08/12/SOLVED-Could-not-find-a-package-configuration-file-provided-by-quot-quot-with-any-of-the-following-names/</loc>
+    <loc>http://ferstar.github.io/2015/08/15/%E6%A0%91%E8%8E%93%E6%B4%BE2B-7%E5%AF%B8%E8%A7%A6%E6%91%B8%E5%B1%8F%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2015-08-31T14:44:46.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ferstar.github.io/2015/08/12/8192cu%E7%BD%91%E5%8D%A1%E9%87%8D%E7%BC%96%E8%AF%91/</loc>
+    <lastmod>2015-08-31T14:44:46.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ferstar.github.io/2015/08/20/Static-IP-Setup-On-Arch-Linux-ARM/</loc>
+    <lastmod>2015-08-31T14:44:46.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ferstar.github.io/2015/08/12/SOLVED-CMAKE-ERROR-YOUR-CXX-COMPILER-%E2%80%9CCMAKE-CXX-COMPILER-NOTFOUND%E2%80%9D-WAS-NOT-FOUND-PLEASE-SET-CMAKE-CXX-COMPILER-TO-A-VALID-COMPILER-PATH-OR-NAME-SOLVED-CMAKE-ERROR-YOUR-CXX-COMPILER-%E2%80%9CCMAKE-CXX/</loc>
     <lastmod>2015-08-31T14:44:46.000Z</lastmod>
   </url>
   

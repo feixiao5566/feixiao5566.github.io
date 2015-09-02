@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="ROS," />
 
 
 
@@ -57,7 +57,7 @@ sudo -H apt-get install -y ros-indigo-gazebo-ros
 sudo -H apt-get install -y ros-indigo-gazebo-*
 似乎也没搞定，挂起，等待后续解决
 暂时跳过，方法：~/kobuki/src/kobuki_desktop$ mv kobuki_">
-<meta property="og:updated_time" content="2015-08-31T14:44:46.000Z">
+<meta property="og:updated_time" content="2015-09-02T03:17:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="E: Package 'ros-indigo-gazebo-ros' has no installation candidate">
 <meta name="twitter:description" content="x，又找不见这个包。。。
@@ -255,11 +255,8 @@ sudo -H apt-get install -y ros-indigo-gazebo-*
 <p>于是又安装了一坨deb。。。不过还好这个包算是装上了</p>
 <h2 id="编译到turtlebot的时候，上面提到的跳过大法似乎失灵，所以只能暴力删除">编译到<code>turtlebot</code>的时候，上面提到的跳过大法似乎失灵，所以只能暴力删除</h2><p><code>~/turtlebot/src/turtlebot_create_desktop$ rm -r create_gazebo_plugins</code></p>
 <h2 id="总结">总结</h2><p>顺利编译完成，只有<code>kobuki_gazebo_plugins</code>和<code>create_gazebo_plugins</code>两个包没有编译，其余全部搞定！</p>
-<h2 id="附加">附加</h2><p>修改catkin_ws/devel中</p>
-<pre><code><span class="comment"># environment at generation time</span>
-        CMAKE_PREFIX_PATH = <span class="string">'/home/ubuntu/catkin_ws/devel;/home/ubuntu/turtlebot/devel;/home/ubuntu/kobuki/devel;/home/ubuntu/rocon/devel;/opt/ros/indigo'</span>.<span class="built_in">split</span>(<span class="string">';'</span>)
-</code></pre><p>环境变量</p>
-<p>～/.bashrc中只需要添加</p>
+<h2 id="附加">附加</h2><p>修改catkin_ws/devel中<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># environment at generation time</span></span><br><span class="line"><span class="setting">CMAKE_PREFIX_PATH = <span class="value"><span class="string">'/home/ubuntu/catkin_ws/devel;/home/ubuntu/turtlebot/devel;/home/ubuntu/kobuki/devel;/home/ubuntu/rocon/devel;/opt/ros/indigo'</span>.split(<span class="string">';'</span>)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>环境变量<br><code>～/.bashrc</code>中只需要添加</p>
 <p><code>source ~/catkin_ws/devel/setup.bash</code></p>
 <p>即可</p>
 </span>
@@ -267,6 +264,12 @@ sudo -H apt-get install -y ros-indigo-gazebo-*
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ROS/" rel="tag">#ROS</a>
+          
+        </div>
       
 
       
